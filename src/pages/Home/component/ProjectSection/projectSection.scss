@@ -1,0 +1,54 @@
+@import "../../../../assets/styles/color/variables";
+
+.projects {
+  &__headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    color: white;
+    width: 100%;
+
+    .h2 {
+      font-size: 32px;
+      font-weight: 500;
+      position: relative;
+      float: none;
+      clear: both;
+      display: inline-block;
+      margin: 0;
+    }
+
+    .h2::before {
+      content: "#";
+      color: $primary;
+    }
+
+    .h2::after {
+      content: "";
+      display: block;
+      width: 10vw;
+      height: 1px;
+      background-color: $primary;
+      position: absolute;
+      transform: translate(100%, -50%);
+      right: -16px;
+      top: 50%;
+    }
+
+    &-link {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  &-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin-top: 48px;
+  }
+}

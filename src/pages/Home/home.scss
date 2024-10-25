@@ -1,0 +1,60 @@
+@import "../../assets/styles/color/variables";
+
+.home {
+  &__container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-top: 7rem;
+    gap: 7rem;
+  }
+}
+
+.quote {
+  border: 1px solid $grey;
+  position: relative;
+  margin: 0;
+
+  &::before {
+    top: -26px;
+    left: 16px;
+  }
+  &::after {
+    bottom: -55px;
+    right: 16px;
+  }
+
+  &::before,
+  &::after {
+    content: '"';
+    position: absolute;
+    color: $grey;
+    font-size: 64px;
+    font-weight: 700;
+    background-image: linear-gradient($background, $background);
+    background-size: 100% 40%;
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+    padding: 32px;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: $background;
+    margin: 0;
+    color: white;
+  }
+
+  &__author {
+    position: absolute;
+    color: $grey;
+    border: 1px solid $grey;
+    padding: 8px;
+    right: -1px;
+    font-size: 16px;
+  }
+}

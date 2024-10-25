@@ -1,0 +1,35 @@
+@import "../../assets/styles/color/variables";
+
+.header {
+  &__container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    margin: 0 auto;
+    width: 1024px;
+  }
+
+  &__nav-container {
+    display: flex;
+  }
+
+  &__navlink {
+    color: white;
+    text-decoration: none;
+
+    span {
+      color: $primary;
+    }
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+}
