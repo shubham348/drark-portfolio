@@ -6,13 +6,15 @@
     top: 0;
     width: 100%;
     z-index: 999;
+    background-color: $background;
+    padding-top: 32px;
+    padding-bottom: 8px;
   }
 
   &__section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
     margin: 0 auto;
     width: 1024px;
   }
@@ -22,14 +24,24 @@
   }
 
   &__navlink {
-    color: white;
+    color: $grey;
     text-decoration: none;
 
     span {
       color: $primary;
     }
     &:not(:last-child) {
-      margin-right: 0.5rem;
+      margin-right: 1.25rem;
     }
   }
+}
+.active {
+  color: white;
+}
+.logo {
+  font-family: "Meddon", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 2rem;
 }

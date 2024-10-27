@@ -1,0 +1,33 @@
+@import "../../assets/styles/color/variables";
+
+.skill {
+  width: 100%; 
+
+  &__description{
+    color: $grey;
+  }
+}
+
+.dev-icons {
+  padding-left: 0;
+  list-style: none;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+.software-skill-inline {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-family: "Google Sans Regular";
+}
+
+.software-skill-inline > i {
+  color: #868e96;
+}
+
+.software-skill-inline > i:hover {
+  color: #645beb;
+}

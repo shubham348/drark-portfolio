@@ -4,6 +4,7 @@ import {
   extractFirstImageSrc,
   extractFirstParagraphText,
 } from "../../utils/getDataFromHtml";
+import Button from "../Button"
 import "./blogCard.scss";
 
 const BlogCard = ({ item }) => {
@@ -20,9 +21,7 @@ const BlogCard = ({ item }) => {
           {extractFirstParagraphText(item?.content)}
         </div>
         <div className="blog__links">
-          <a href={item?.guid} className="button" target="_blank">
-            Read Here =&gt;
-          </a>
+          <Button href={item?.guid}  target="_blank" text="Read Here =&gt;"/>
         </div>
       </div>
     </div>

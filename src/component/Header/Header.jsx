@@ -12,7 +12,7 @@ const links = [
     to: "/work",
   },
   {
-    name: "about Me",
+    name: "about-me",
     to: "/about-me",
   },
   {
@@ -25,10 +25,15 @@ const Header = () => {
   return (
     <div className="header__container">
       <div className="header__section">
-        <div>sec</div>
+        <div class="logo">Shubham</div>
         <div className="header__nav-container">
           {links.map((item) => (
-            <NavLink className="header__navlink" to={item?.to}>
+            <NavLink
+              className={({ isActive }) =>
+                `header__navlink ${isActive ? "active" : ""}`
+              }
+              to={item?.to}
+            >
               <span>#</span>
               {item?.name}
             </NavLink>

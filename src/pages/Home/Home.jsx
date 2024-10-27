@@ -1,22 +1,25 @@
 import React from "react";
-import Header from "../../component/Header/Header";
 import HeroSection from "./component/HeroSection";
 import ProjectSection from "./component/ProjectSection";
+import ComponentLayout from "../../component/ComponentLayout";
+import SkillSection from "../../component/SkillSection";
+import AboutSection from "../../component/AboutSection";
 import "./home.scss";
 
 const Home = () => {
   return (
-    <>
-      <Header />
-      <div className="home__container">
-        <HeroSection />
-        <figure className="quote">
-            <blockquote className="quote__text">With great power comes great electricity bill</blockquote>
-            <figcaption className="quote__author">-Dr. Who</figcaption>
-        </figure>
-        <ProjectSection/>
-      </div>
-    </>
+    <ComponentLayout>
+      <HeroSection />
+      <figure className="quote">
+        <blockquote className="quote__text">
+          With great power comes great electricity bill
+        </blockquote>
+        <figcaption className="quote__author">-Dr. Who</figcaption>
+      </figure>
+      <ProjectSection />
+      <SkillSection />
+      <AboutSection />
+    </ComponentLayout>
   );
 };
 

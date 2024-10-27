@@ -1,0 +1,29 @@
+@import "../../assets/styles/color/variables";
+
+.title {
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+  float: none;
+  clear: both;
+  display: inline-block;
+  margin: 0;
+}
+
+.title::before {
+  content: "#";
+  color: $primary;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 10vw;
+  height: 1px;
+  background-color: $primary;
+  position: absolute;
+  transform: translate(100%, -50%);
+  right: -16px;
+  top: 50%;
+}

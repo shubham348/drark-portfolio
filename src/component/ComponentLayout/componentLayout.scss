@@ -1,0 +1,16 @@
+@import "../../assets/styles/color/variables";
+
+.layout {
+  &__container {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-top: 7rem;
+    gap: 7rem;
+  }
+}

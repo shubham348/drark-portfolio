@@ -1,4 +1,4 @@
-import medium from "../assets/images/medium.png"
+import medium from "../assets/images/medium.png";
 
 export function extractFirstImageSrc(htmlString) {
   const parser = new DOMParser();
@@ -9,7 +9,11 @@ export function extractFirstImageSrc(htmlString) {
 
 export function extractFirstParagraphText(htmlString) {
   const parser = new DOMParser();
-  const doc = parser.parseFromString(htmlString, 'text/html');
-  const paragraph = doc.querySelector('p');
-  return paragraph ? paragraph.textContent : null;
+  const doc = parser.parseFromString(htmlString, "text/html");
+  const paragraph = doc.querySelector("p");
+  return paragraph
+    ? paragraph.textContent.length > 200
+      ? paragraph.textContent.slice(0, 200) + "..."
+      : paragraph.textContent
+    : null;
 }

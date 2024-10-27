@@ -1,0 +1,30 @@
+@import "../../assets/styles/color/variables";
+
+.footer {
+  max-width: inherit;
+  width: 100%;
+  border-top: 1px solid $grey;
+  padding-top: 32px;
+  margin-bottom: 16px;
+  margin-top: 3rem;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  &__copyright {
+    color: $grey;
+    text-align: center;
+  }
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+}

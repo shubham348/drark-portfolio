@@ -1,12 +1,24 @@
 @import "../../assets/styles/color/variables";
 
-.blog {
-  border: 1px solid $grey;
+.exp {
+  width: 100%;
+  &-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  &__card {
+    border: 1px solid $grey;
+  }
   &__image {
     border-bottom: 1px solid $grey;
     aspect-ratio: 16 / 9;
-    max-width: 100%;
+    width: 100%;
     display: block;
+    background: white;
   }
   &__content {
     padding: 16px;
@@ -20,9 +32,9 @@
     color: $grey;
     margin: 16px 0;
   }
-  &__links {
+  &__links{
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 }

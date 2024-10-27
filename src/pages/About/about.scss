@@ -1,0 +1,28 @@
+@import "../../assets/styles/color/variables";
+
+.about-me{
+    .path {
+        align-self: start;
+        display: block;
+        width: 100%;
+        &__name {
+          font-size: 32px;
+          font-weight: 600;
+          color: white;
+      
+          &::before {
+            content: "/";
+            color: $primary;
+          }
+        }
+      
+        &__description {
+          color: $grey;
+          margin-top: 16px;
+        }
+      }
+      .about {
+        flex-direction: row-reverse;
+      }
+}
+
