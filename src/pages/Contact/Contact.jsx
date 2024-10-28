@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <ComponentLayout>
       <div class="path">
-        <h1 class="h1 path__name">Contact</h1>
+        <h1 class="h1 path__name">contact</h1>
         <p class="path__description">Where to connect?</p>
       </div>
       <div className="contact">

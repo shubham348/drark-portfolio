@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./header.scss";
 
@@ -22,11 +22,27 @@ const links = [
 ];
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
   return (
     <div className="header__container">
       <div className="header__section">
         <div class="logo">Shubham</div>
-        <div className="header__nav-container">
+        <input
+          className="menu-btn"
+          type="checkbox"
+          id="menu-btn"
+          onChange={toggleMenu}
+          checked={menuOpen}
+        />
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="navicon"></span>
+        </label>
+        <div
+          className={`header__nav-container ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        >
           {links.map((item) => (
             <NavLink
               className={({ isActive }) =>

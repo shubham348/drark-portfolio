@@ -12,5 +12,10 @@
     margin: 0 auto;
     margin-top: 7rem;
     gap: 7rem;
+
+    @media (max-width: 1024px) {
+      padding: 0 16px;
+      width: auto;
+    }
   }
 }

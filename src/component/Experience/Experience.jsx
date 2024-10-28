@@ -36,7 +36,7 @@ const experiences = [
 const Experience = () => {
   return (
     <div className="exp">
-      <Title text="Experience" />
+      <Title text="experience" />
       <div className="exp-list">
         {" "}
         {experiences?.map((item) => (
