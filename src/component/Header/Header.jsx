@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <div className="header__container">
       <div className="header__section">
-        <div class="logo">Shubham</div>
+        <NavLink className="logo"  to={"/"}>Shubham</NavLink>
         <input
           className="menu-btn"
           type="checkbox"
