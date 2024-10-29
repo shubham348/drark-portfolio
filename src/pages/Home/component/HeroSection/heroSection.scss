@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 0;
+    align-items: center;
   }
 
   &__title {
@@ -47,5 +48,6 @@
     position: relative;
     z-index: 2;
     border-bottom: 1px solid $primary;
+    max-width: 340px;
   }
 }
