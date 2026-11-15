@@ -22,7 +22,13 @@ html.lenis body {
   position: relative;
   background: transparent;
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
   overflow-x: clip;
 }
 
@@ -97,18 +103,33 @@ html.lenis body {
    NAVIGATION & HERO
    ========================================================= */
 .final-nav {
-  position: absolute;
-  z-index: 5;
-  inset: 0 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 80px;
+  margin-bottom: -80px; /* Pulls HeroSection up to top: 0 so nav overlays it */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px clamp(28px, 7vw, 120px);
+  padding: 0 clamp(28px, 7vw, 120px);
   color: var(--white);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  transition:
+    height 0.3s ease,
+    background 0.3s ease,
+    backdrop-filter 0.3s ease,
+    border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+  background: rgb(247 216 209 / 11%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 249, 239, 0.12);
+  }
 }
 .final-nav div {
   display: flex;
@@ -232,7 +253,6 @@ html.lenis body {
   font-size: 17px;
   line-height: 1.5;
 }
-
 
 .field {
   padding-top: 48px;
@@ -496,7 +516,6 @@ html.lenis body {
     transition: none;
   }
 }
-
 
 .section-intro {
   margin-bottom: 46px;

@@ -13,9 +13,13 @@ import "./home.scss";
 
 export default function Home() {
   const [showTop, setShowTop] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > window.innerHeight * 0.7);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+      setShowTop(window.scrollY > window.innerHeight * 0.7);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,6 +32,15 @@ export default function Home() {
     }
   };
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    if (window.__lenis) {
+      window.__lenis.scrollTo(targetId, { offset: -80 });
+    } else {
+      document.querySelector(targetId)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <UserProvider>
       <main className="final-site">
@@ -37,19 +50,34 @@ export default function Home() {
           triggerSelector=".final-site"
         />
 
-        <div className="final-content-layer">
-          <nav className="final-nav" aria-label="Primary navigation">
-            <Link className="final-logo" to="/">
-              SG<span>•</span>
-            </Link>
-            <div>
-              <a href="#field-notes">About</a>
-              <a href="#notes">Articles</a>
-              <a href="#contact">Contact</a>
-              <a href="#notes">My works</a>
-            </div>
-          </nav>
+        {/* Fixed Navigation Bar */}
+        <nav
+          className={`final-nav ${isScrolled ? "scrolled" : ""}`}
+          aria-label="Primary navigation"
+        >
+          <Link className="final-logo" to="/" onClick={handleScrollToTop}>
+            SG<span>•</span>
+          </Link>
+          <div>
+            <a href="#field-notes" onClick={(e) => handleNavClick(e, "#field-notes")}>
+              Field Notes
+            </a>
+                <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>
+              About
+            </a>
+            <a href="#notes" onClick={(e) => handleNavClick(e, "#notes")}>
+              Articles
+            </a>
+            <a href="#travel" onClick={(e) => handleNavClick(e, "#travel")}>
+              Travel
+            </a>
+            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+              Contact
+            </a>
+          </div>
+        </nav>
 
+        <div className="final-content-layer">
           <HeroSection />
           <FieldNotesSection />
           <ArticlesSection />
