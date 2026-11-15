@@ -57,13 +57,25 @@ html.lenis body {
 .scroll-video-frame {
   position: relative;
   height: 100%;
-  width: min(62vw, 760px);
+  width: min(68vw, 860px);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   /* Softly feathers the left edge of the 9:16 video into the synced background color */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 20%,
+    black 45%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 20%,
+    black 45%,
+    black 100%
+  );
 }
 
 .scroll-video-el {
@@ -225,7 +237,7 @@ html.lenis body {
 
 .field,
 .about {
-  background: rgba(251, 232, 226, 0.82);
+  background: rgb(247 216 209 / 11%);
 }
 .field {
   padding-top: 48px;
@@ -289,87 +301,6 @@ html.lenis body {
 .skill-list span:first-child {
   border-color: var(--ochre);
   background: var(--ochre);
-}
-
-.articles {
-  background: rgba(247, 216, 209, 0.82);
-}
-.article-slider {
-  overflow: hidden;
-  margin: 0 -2px;
-}
-.article-track {
-  display: flex;
-  gap: 14px;
-}
-.article-slide {
-  display: flex;
-  flex: 0 0 calc(33.333% - 10px);
-  min-width: 0;
-  min-height: 210px;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
-  padding: 22px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: rgba(248, 223, 186, 0.88);
-  color: var(--ink);
-}
-.article-slide.feature {
-  flex-basis: calc(50% - 7px);
-  min-height: 260px;
-}
-.article-card h3 {
-  margin: 0;
-  font-size: clamp(21px, 2vw, 30px);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  overflow-wrap: anywhere;
-}
-.article-card p {
-  display: -webkit-box;
-  overflow: hidden;
-  margin: 12px 0 0;
-  font-size: 14px;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-.view-more {
-  align-items: center;
-  justify-content: center;
-  background: var(--maroon);
-  color: var(--white);
-  font-size: 28px;
-  font-weight: 900;
-}
-.article-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 22px;
-}
-.article-controls button {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-}
-.article-controls button:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-.article-controls span {
-  font-size: 12px;
-  font-weight: 800;
 }
 
 .about {
@@ -539,17 +470,6 @@ html.lenis body {
     padding: 9px 12px;
     font-size: 10px;
   }
-  .article-slide,
-  .article-slide.feature {
-    flex-basis: 86%;
-    min-height: 210px;
-  }
-  .article-slide.feature {
-    min-height: 230px;
-  }
-  .articles .section-intro h2 {
-    font-size: 56px;
-  }
   .about {
     padding-top: 42px;
     padding-bottom: 42px;
@@ -577,8 +497,6 @@ html.lenis body {
   .scroll-cue {
     animation: none;
   }
-  .article-card,
-  .view-more,
   .socials a {
     transition: none;
   }
