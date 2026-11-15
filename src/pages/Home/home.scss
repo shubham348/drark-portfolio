@@ -501,3 +501,39 @@ html.lenis body {
     transition: none;
   }
 }
+
+
+.section-intro {
+  margin-bottom: 46px;
+  text-align: center;
+}
+
+/* 01 / FIELD NOTES, 02 / ARTICLES, 03 / ABOUT ME */
+.section-intro > p {
+  margin-bottom: 18px;
+  color: var(--apricot); /* Brighter warm gold-cream than ochre on red */
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Main Section Heading: Matches SHUBHAM and CONTACT */
+.section-intro h2 {
+  margin: 0 0 18px;
+  color: var(--white); /* #fff9ef — Crisp warm white like Hero & Contact */
+  font-size: clamp(48px, 7vw, 94px);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+/* Subtitle below the heading: Matches Contact paragraph */
+.section-intro span {
+  display: block;
+  max-width: 760px;
+  margin: auto;
+  color: rgba(255, 249, 239, 0.84); /* Soft warm white */
+  font-size: 17px;
+  line-height: 1.5;
+}

@@ -1,26 +1,27 @@
 /* =========================================================
    src/pages/Home/component/articles.scss
-   Standalone Styles for ArticlesSection.jsx
+   Soft Modern Theme — Matches Contact, Field Notes & About
    ========================================================= */
 
 .final-section.articles {
-  background: rgb(247 216 209 / 11%);
+   background: rgb(247 216 209 / 11%);
 
   .brutal-loading {
     padding: 48px;
     text-align: center;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 0.12em;
+    opacity: 0.7;
   }
 
   .brutal-showcase {
-    max-width: 780px;
+    max-width: 760px;
     margin: 0 auto;
   }
 
   .brutal-viewport {
     overflow: hidden;
-    padding: 12px 16px 24px 6px; /* Room on right/bottom for hard neo-shadow */
+    padding: 10px 8px 26px;
   }
 
   .brutal-track {
@@ -28,14 +29,14 @@
     align-items: stretch;
   }
 
-  /* 1 Card at a time (100% width per slide) */
+  /* 1 Card at a time with smooth scale & fade */
   .brutal-slide {
     flex: 0 0 100%;
     min-width: 0;
     padding: 0 10px;
-    opacity: 0.45;
+    opacity: 0.4;
     transform: scale(0.96);
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 
     &.is-active {
       opacity: 1;
@@ -47,70 +48,72 @@
     display: block;
     color: var(--ink, #2b2523);
     text-decoration: none;
-    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
     &:hover {
-      transform: translate(-4px, -4px);
+      transform: translateY(-5px);
 
       .brutal-folder-card {
-        box-shadow: 14px 14px 0px var(--deep, #171515);
+        box-shadow: 0 24px 48px rgba(43, 37, 35, 0.14);
+        border-color: rgba(109, 98, 90, 0.38);
       }
       .brutal-image-box img {
         transform: scale(1.04);
       }
       .brutal-arrow-box {
-        background: var(--hero, #a91d24);
+        background: var(--hero, #d93232);
         color: var(--white, #fff9ef);
+        transform: translateY(-2px);
       }
     }
   }
 
-  /* Folder Top Tab with Angled Right Edge */
+  /* Soft Folder Top Tab (Seamless rounded top tab) */
   .brutal-folder-tab {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 34px 9px 18px;
-    background: var(--maroon, #6e0f14);
-    color: var(--white, #fff9ef);
-    border: 2.5px solid var(--deep, #171515);
+    gap: 8px;
+    padding: 9px 22px 8px 16px;
+    background: rgba(248, 223, 186, 0.85);
+    color: var(--ink, #2b2523);
+    border: 1px solid rgba(109, 98, 90, 0.25);
     border-bottom: none;
-    border-radius: 14px 18px 0 0;
+    border-radius: 16px 16px 0 0;
     font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.16em;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     position: relative;
     z-index: 2;
-    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%);
+    margin-left: 18px;
 
     .tab-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--ochre, #d99b52);
-      border: 1.5px solid var(--white, #fff9ef);
+      background: var(--hero, #d93232);
     }
   }
 
-  /* Main Folder Card Body with Hard Neo-Shadow */
+  /* Soft Modern Card Body (Matches .panel and .about-card) */
   .brutal-folder-card {
     position: relative;
-    background: var(--apricot, #f8dfba);
-    border: 2.5px solid var(--deep, #171515);
-    border-radius: 0 20px 20px 20px;
-    box-shadow: 10px 10px 0px var(--deep, #171515);
+    background: rgba(248, 223, 186, 0.65);
+    border: 1px solid rgba(109, 98, 90, 0.25);
+    border-radius: 22px;
+    box-shadow: 0 14px 34px rgba(43, 37, 35, 0.08);
+    padding: 12px;
     overflow: hidden;
-    transition: box-shadow 0.25s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
-  /* Blog Cover Image Area */
+  /* Blog Cover Image Area — Soft Rounded Inner Frame */
   .brutal-image-box {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 8.5;
-    background: var(--deep, #171515);
-    border-bottom: 2.5px solid var(--deep, #171515);
+    background: rgba(43, 37, 35, 0.08);
+    border-radius: 16px;
     overflow: hidden;
 
     img {
@@ -118,57 +121,66 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .brutal-tag {
       position: absolute;
       top: 14px;
       right: 14px;
-      padding: 6px 12px;
-      background: var(--ochre, #d99b52);
-      color: var(--deep, #171515);
-      border: 2px solid var(--deep, #171515);
+      padding: 7px 14px;
+      background: rgba(255, 249, 239, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--ink, #2b2523);
       border-radius: 999px;
-      box-shadow: 3px 3px 0px var(--deep, #171515);
       font-size: 10px;
-      font-weight: 900;
+      font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     }
   }
 
-  /* Bottom Title Row + Action Button Box */
+  /* Bottom Title Row + Soft Action Button (Matches Contact Socials) */
   .brutal-card-footer {
-    display: grid;
-    grid-template-columns: 1fr 78px;
-    align-items: stretch;
-    background: var(--apricot, #f8dfba);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 12px 8px;
+    background: transparent;
   }
 
   /* Strict 2-Line Locked Title with Ellipsis Overflow */
   .brutal-title {
-    margin: 20px 24px;
-    font-size: clamp(20px, 2.4vw, 28px);
-    font-weight: 900;
+    margin: 0;
+    font-size: clamp(20px, 2.3vw, 27px);
+    font-weight: 800;
     letter-spacing: -0.04em;
-    line-height: 1.15;
-    /* Lock exact height to 2 lines (2 * 1.15em = 2.3em) so card size never changes */
-    height: 2.3em;
+    line-height: 1.2;
+    /* Lock exact height to 2 lines (2 * 1.2em = 2.4em) so card size never changes */
+    height: 2.4em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--ink, #2b2523);
   }
 
+  /* Soft 48x48 Rounded Square Icon — Identical to Contact .socials a */
   .brutal-arrow-box {
+    flex-shrink: 0;
     display: grid;
+    width: 48px;
+    height: 48px;
     place-items: center;
-    border-left: 2.5px solid var(--deep, #171515);
-    background: var(--ochre, #d99b52);
-    color: var(--deep, #171515);
-    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 14px;
+    background: var(--white, #fff9ef);
+    color: var(--ink, #2b2523);
+    box-shadow: 0 6px 16px rgba(43, 37, 35, 0.08);
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
   }
 
   /* Bottom Navigation + View More Bar */
@@ -178,7 +190,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    margin-top: 22px;
+    margin-top: 14px;
     padding: 0 12px;
   }
 
@@ -188,28 +200,28 @@
     gap: 14px;
   }
 
+  /* Soft Rounded Square Nav Buttons — Matches Contact .socials a */
   .brutal-nav-btn {
     display: grid;
     width: 48px;
     height: 48px;
     place-items: center;
     background: var(--white, #fff9ef);
-    color: var(--deep, #171515);
-    border: 2.5px solid var(--deep, #171515);
+    color: var(--ink, #2b2523);
+    border: 1px solid rgba(109, 98, 90, 0.2);
     border-radius: 14px;
-    box-shadow: 4px 4px 0px var(--deep, #171515);
+    box-shadow: 0 6px 16px rgba(43, 37, 35, 0.06);
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 
     &:hover {
+      transform: translateY(-3px);
       background: var(--ochre, #d99b52);
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px var(--deep, #171515);
+      color: var(--white, #fff9ef);
     }
 
     &:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px var(--deep, #171515);
+      transform: translateY(0);
     }
   }
 
@@ -217,57 +229,59 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    min-width: 110px;
+    min-width: 100px;
   }
 
   .brutal-count-text {
     font-size: 12px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 0.12em;
     text-align: center;
+    opacity: 0.8;
   }
 
   .brutal-progress-rail {
     width: 100%;
-    height: 8px;
-    background: var(--white, #fff9ef);
-    border: 2px solid var(--deep, #171515);
+    height: 5px;
+    background: rgba(109, 98, 90, 0.2);
     border-radius: 999px;
     overflow: hidden;
   }
 
   .brutal-progress-fill {
     height: 100%;
-    background: var(--maroon, #6e0f14);
+    background: var(--hero, #d93232);
+    border-radius: 999px;
     transition: width 0.3s ease;
   }
 
-  /* Dedicated Bottom "View More Articles" Button */
+  /* Soft Rounded "View More Articles" Pill — Matches Contact & Theme */
   .brutal-view-more-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 24px;
-    background: var(--maroon, #6e0f14);
-    color: var(--white, #fff9ef);
-    border: 2.5px solid var(--deep, #171515);
+    height: 48px;
+    padding: 0 22px;
+    background: var(--white, #fff9ef);
+    color: var(--ink, #2b2523);
+    border: 1px solid rgba(109, 98, 90, 0.2);
     border-radius: 14px;
-    box-shadow: 5px 5px 0px var(--deep, #171515);
+    box-shadow: 0 6px 16px rgba(43, 37, 35, 0.06);
     font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
+    font-weight: 800;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      background: var(--hero, #a91d24);
-      transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0px var(--deep, #171515);
+      transform: translateY(-3px);
+      background: var(--hero, #d93232);
+      color: var(--white, #fff9ef);
+      border-color: transparent;
     }
 
     &:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px var(--deep, #171515);
+      transform: translateY(0);
     }
   }
 
@@ -277,17 +291,26 @@
       font-size: 56px;
     }
     .brutal-viewport {
-      padding: 8px 12px 18px 4px;
+      padding: 6px 4px 18px;
+    }
+    .brutal-folder-card {
+      padding: 10px;
+      border-radius: 18px;
     }
     .brutal-image-box {
       aspect-ratio: 16 / 10;
+      border-radius: 12px;
     }
     .brutal-card-footer {
-      grid-template-columns: 1fr 60px;
+      padding: 14px 8px 6px;
     }
     .brutal-title {
-      margin: 16px 16px;
       font-size: 18px;
+    }
+    .brutal-arrow-box,
+    .brutal-nav-btn {
+      width: 44px;
+      height: 44px;
     }
     .brutal-bottom-bar {
       flex-direction: column;
@@ -297,6 +320,7 @@
       justify-content: space-between;
     }
     .brutal-view-more-btn {
+      height: 44px;
       justify-content: center;
     }
   }
