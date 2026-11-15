@@ -84,7 +84,7 @@ export default function TravelPhotosSection() {
 
     cardsRef.current.forEach((card, index) => {
       if (!card) return;
-      const offset = (index - activeIndex + total) % total;
+      const offset = index;
 
       if (offset === 0) {
         gsap.to(card, {
@@ -128,7 +128,7 @@ export default function TravelPhotosSection() {
           ease: "power3.out",
           overwrite: "auto",
         });
-      } else if (offset === total - 1 && total > 2) {
+      } else if (offset === 3 && total > 3) {
         gsap.to(card, {
           xPercent: -16,
           y: 12,
@@ -236,26 +236,42 @@ export default function TravelPhotosSection() {
           onMouseLeave={handleMouseLeave}
           onClick={goNext}
         >
-          {photos.map((imgUrl, index) => (
-            <div
-              className="travel-card"
-              key={imgUrl}
-              ref={(el) => (cardsRef.current[index] = el)}
-            >
-              <div className="travel-card-inner">
-                <img
-                  src={imgUrl}
-                  alt={`Travel frame ${index + 1}`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="travel-card-badge">
-                  <span className="live-dot" />
-                  <span>FRAME // {String(index + 1).padStart(2, "0")}</span>
+          {Array.from({ length: Math.min(total, 4) }, (_, offset) => {
+            const photoIndex =
+              offset === 3 && total > 3
+                ? (activeIndex - 1 + total) % total
+                : (activeIndex + offset) % total;
+
+            const imgUrl = photos[photoIndex];
+
+            return (
+              <div
+                className="travel-card"
+                key={offset}
+                ref={(el) => (cardsRef.current[offset] = el)}
+              >
+                <div className="travel-card-inner">
+                  <img className="travel-card-bg" src={imgUrl} alt="" />
+
+                  <img
+                    src={imgUrl}
+                    alt={`Travel frame ${photoIndex + 1}`}
+                    loading="eager"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                    className="travel-card-main"
+                  />
+
+                  <div className="travel-card-badge">
+                    <span className="live-dot" />
+                    <span>
+                      FRAME // {String(photoIndex + 1).padStart(2, "0")}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="travel-controls-bar">

@@ -38,12 +38,12 @@ export default async () => {
 
     const photos = [...new Set(matches)]
       .filter((url) => !url.includes("/a/") && !url.includes("/a-/"))
-      .map((url) => `${url}=w1200-h900-no`);
+      .map((url) => `${url}=w2048-h2048-no`);
 
     return Response.json({
       success: photos.length > 0,
       count: photos.length,
-      photos: photos.slice(0, 20),
+      photos,
       diagnostic: {
         upstreamStatus: response.status,
         finalUrl: response.url,
