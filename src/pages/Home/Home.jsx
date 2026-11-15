@@ -8,6 +8,7 @@ import FieldNotesSection from "./component/FieldNotesSection";
 import ArticlesSection from "./component/ArticlesSection";
 import AboutSection from "./component/AboutSection";
 import ContactSection from "./component/ContactSection";
+import TravelPhotosSection from "./component/TravelPhotosSection";
 import "./home.scss";
 
 export default function Home() {
@@ -53,6 +54,7 @@ export default function Home() {
           <FieldNotesSection />
           <ArticlesSection />
           <AboutSection />
+          <TravelPhotosSection />
           <ContactSection />
         </div>
 
