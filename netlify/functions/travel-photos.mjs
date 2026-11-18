@@ -1,4 +1,5 @@
-const ALBUM_URL = "https://photos.google.com/share/AF1QipPjx5HIBEXt6MLxFSM__b9NtLDZcF8mV6GqWiht1TXpapw2BYDtrpF-oynqavEXYA?key=YmxzaDBLaUYzWmotY3A3SUlrQUdwbXUyOXNrUEN3";
+const ALBUM_URL =
+  "https://photos.google.com/share/AF1QipPjx5HIBEXt6MLxFSM__b9NtLDZcF8mV6GqWiht1TXpapw2BYDtrpF-oynqavEXYA?key=YmxzaDBLaUYzWmotY3A3SUlrQUdwbXUyOXNrUEN3";
 
 export default async () => {
   try {
@@ -37,7 +38,14 @@ export default async () => {
     const matches = cleanHtml.match(regex) || [];
 
     const photos = [...new Set(matches)]
-      .filter((url) => !url.includes("/a/") && !url.includes("/a-/"))
+      .filter((url) => {
+        if (url.includes("/a/") || url.includes("/a-/")) return false;
+
+        // Exclude URLs that explicitly identify video media.
+        if (/video|videoplayback|\.mp4|\.mov|\.webm/i.test(url)) return false;
+
+        return true;
+      })
       .map((url) => `${url}=w2048-h2048-no`);
 
     return Response.json({
